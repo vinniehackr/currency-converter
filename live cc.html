@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title> Currency converter</title>
+	<style>
+		* { font-size:60px; }
+		body { background-color: orange;}
+	</style>
+	<script>
+		function convert()
+		{
+			event.preventDefault();
+			let amt= document.getElementById("amt");
+			let ans= document.getElementById("ans");
+
+			if(amt.value=="")
+			{
+				alert("input is empty");
+				ans.innerHTML="";
+				amt.focus();
+				return;
+			}
+		
+			let aid= parseFloat(amt.value);
+			let air= aid * 82.60;
+			let msg= "\u20B9" + air.toFixed(2);
+			ans.innerHTML= msg;
+		}
+	</script>
+</head>
+<body>
+<center>
+	<h1>Currency Converter</h1>
+	<form onsubmit="convert()">
+	<input type= "number" step= "any" placeholder= "enter amt in $$" id= "amt"/>
+	<br><br>
+	<input type="submit" value="Convert"/>
+	</form>
+	<h2 id="ans"/>
+</center>
+</body>
+</html> 
